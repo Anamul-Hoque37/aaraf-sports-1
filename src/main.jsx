@@ -8,12 +8,17 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from './Components/Home.jsx';
+import AddEquipment from './Components/addEquipment.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>
+    element: <Home></Home>,
   },
+  {
+    path: "/add",
+    element: <AddEquipment></AddEquipment>
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(
