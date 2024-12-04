@@ -4,10 +4,10 @@ import { NavLink } from 'react-router-dom';
 const Navbar = () => {
 
     const Links = <>
-    <li><NavLink to="/" >Home</NavLink></li>
-    <li><NavLink to="/add">Add Equipment</NavLink></li>
-    <li><NavLink to="/sports">All Sport Equipment</NavLink></li>
-    <li><NavLink to="/Contact">Contact Us</NavLink></li>
+        <li><NavLink to="/" >Home</NavLink></li>
+        <li><NavLink to="/add">Add Equipment</NavLink></li>
+        <li><NavLink to="/sports">All Sport Equipment</NavLink></li>
+        <li><NavLink to="/Contact">Contact Us</NavLink></li>
     </>
     return (
         <div>
@@ -46,7 +46,15 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Button</a>
+                    {/* <div className='flex sm:justify-start lg:justify-end gap-3 items-center shadow p-2 rounded-box px-4'>
+                        {
+                            user && user?.email ? (<div><img className='w-14 h-14 rounded-full relative' src={user.photoURL} alt="" />
+                                <p className='text-xl opacity-0 text-blue-700 hover:opacity-100 bg-transparent w-14 text-center absolute top-8'>{user.displayName}</p></div>) : (""
+                            )}
+
+                        {user && user?.email ? (<button onClick={logOut} className='btn'>LogOut</button>) : (<Link to="/auth/login" className='btn'>Login</Link>)}
+
+                    </div> */}
                 </div>
             </div>
         </div>
