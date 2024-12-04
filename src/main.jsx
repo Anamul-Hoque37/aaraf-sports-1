@@ -1,7 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
 
 import {
   createBrowserRouter,
@@ -12,6 +11,7 @@ import AddEquipment from './Components/addEquipment.jsx';
 import Product from './Components/Product.jsx';
 import ErrorPage from './Components/ErrorPage.jsx';
 import SportEquipment from './Components/SportEquipment.jsx';
+import Login from './Components/Authentication/Login.jsx';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +32,10 @@ const router = createBrowserRouter([
         path: "/sports",
         element: <SportEquipment></SportEquipment>,
         loader: () => fetch('http://localhost:3000/add')
+      },
+      {
+        path: "/login",
+        element: <Login></Login>
       }
     ]
   },

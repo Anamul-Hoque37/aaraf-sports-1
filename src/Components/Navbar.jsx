@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -46,15 +46,14 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    {/* <div className='flex sm:justify-start lg:justify-end gap-3 items-center shadow p-2 rounded-box px-4'>
-                        {
-                            user && user?.email ? (<div><img className='w-14 h-14 rounded-full relative' src={user.photoURL} alt="" />
+                    <div className='flex sm:justify-start lg:justify-end gap-3 items-center shadow p-2 rounded-box px-4'>
+                        {/* {user && user?.email ? (<div><img className='w-14 h-14 rounded-full relative' src={user.photoURL} alt="" />
                                 <p className='text-xl opacity-0 text-blue-700 hover:opacity-100 bg-transparent w-14 text-center absolute top-8'>{user.displayName}</p></div>) : (""
                             )}
 
-                        {user && user?.email ? (<button onClick={logOut} className='btn'>LogOut</button>) : (<Link to="/auth/login" className='btn'>Login</Link>)}
-
-                    </div> */}
+                        {user && user?.email ? (<button onClick={logOut} className='btn'>LogOut</button>) : (<Link to="/login" className='btn'>Login</Link>)} */}
+                        <button>Login</button>
+                    </div>
                 </div>
             </div>
         </div>
