@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Home from './Components/Home.jsx';
 import AddEquipment from './Components/addEquipment.jsx';
+import Product from './Components/Product.jsx';
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/add",
-    element: <AddEquipment></AddEquipment>
+    element: <AddEquipment></AddEquipment>,
+  },
+  {
+    path: "/product",
+    element: <Product></Product>,
+    loader: () => fetch('http://localhost:3000/add')
   }
 ]);
 
