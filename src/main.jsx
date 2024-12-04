@@ -12,13 +12,15 @@ import Product from './Components/Product.jsx';
 import ErrorPage from './Components/ErrorPage.jsx';
 import SportEquipment from './Components/SportEquipment.jsx';
 import Login from './Components/Authentication/Login.jsx';
+import Registration from './Components/Authentication/Registration.jsx';
+import AuthProvider from './Components/Authentication/AuthProvider.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
     errorElement: <ErrorPage></ErrorPage>,
-    children:[
+    children: [
       {
         path: "/add",
         element: <AddEquipment></AddEquipment>,
@@ -35,7 +37,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login></Login>
+        element: <Login></Login>,
+      },
+      {
+        path: "/register",
+        element: <Registration></Registration>
       }
     ]
   },
@@ -43,6 +49,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )

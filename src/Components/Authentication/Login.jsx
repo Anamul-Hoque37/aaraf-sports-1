@@ -10,7 +10,7 @@ import auth from '../../../Firebase.config';
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const provider = new GoogleAuthProvider()
-    // const {userLogin, setUser}= useContext(AuthContext);
+    const {userLogin, setUser}= useContext(AuthContext);
     const [error, setError] = useState({});
     const location = useLocation();
     const emailRef = useRef();
@@ -94,7 +94,7 @@ const Login = () => {
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Login</button>
                     </div>
-                    <p>Don't have an account ? <Link className="text-red-600 font-bold" to="/auth/register">Register</Link> </p>
+                    <p>Don't have an account ? <Link className="text-red-600 font-bold" to="/register">Register</Link> </p>
                 </form>
                 <div className='p-8 w-full mx-auto'>
                     <button onClick={handleGoogleSignIn} className='btn w-full bg-slate-400 '>Login With Google</button>
