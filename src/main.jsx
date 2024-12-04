@@ -10,25 +10,35 @@ import {
 import Home from './Components/Home.jsx';
 import AddEquipment from './Components/addEquipment.jsx';
 import Product from './Components/Product.jsx';
+import ErrorPage from './Components/ErrorPage.jsx';
+import SportEquipment from './Components/SportEquipment.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children:[
+      {
+        path: "/add",
+        element: <AddEquipment></AddEquipment>,
+      },
+      {
+        path: "/product",
+        element: <Product></Product>,
+        loader: () => fetch('http://localhost:3000/add')
+      },
+      {
+        path: "/sports",
+        element: <SportEquipment></SportEquipment>,
+        loader: () => fetch('http://localhost:3000/add')
+      }
+    ]
   },
-  {
-    path: "/add",
-    element: <AddEquipment></AddEquipment>,
-  },
-  {
-    path: "/product",
-    element: <Product></Product>,
-    loader: () => fetch('http://localhost:3000/add')
-  }
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-   <RouterProvider router={router} />
+    <RouterProvider router={router} />
   </StrictMode>,
 )
