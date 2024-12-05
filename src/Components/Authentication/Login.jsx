@@ -1,16 +1,17 @@
 import React, { useContext, useRef, useState } from 'react';
-import { AuthContext } from './AuthProvider';
+
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { GoogleAuthProvider, sendPasswordResetEmail, signInWithPopup } from 'firebase/auth';
+;
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import swal from 'sweetalert';
 import auth from '../../../Firebase.config';
+import { AuthContext } from './AuthProvider';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const provider = new GoogleAuthProvider()
-    const {userLogin, setUser}= useContext(AuthContext);
+    // const provider = new GoogleAuthProvider()
+    const { userLogin} = useContext(AuthContext)
     const [error, setError] = useState({});
     const location = useLocation();
     const emailRef = useRef();

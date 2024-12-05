@@ -4,7 +4,7 @@ import ProductCard from './ProductCard';
 
 const Product = () => {
     const products = useLoaderData();
-    console.log(products)
+    // console.log(products)
     return (
         <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-11/12 mx-auto'>
             {

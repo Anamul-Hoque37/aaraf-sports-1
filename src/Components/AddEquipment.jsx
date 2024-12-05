@@ -19,7 +19,7 @@ const AddEquipment = () => {
         const userName = form.userName.value;
 
         const newEquipment = {image, itemName,categoryName, description, price, rating, customization, processingTime, stockStatus, userEmail, userName }
-        console.log(newEquipment)
+        // console.log(newEquipment)
 
         fetch('http://localhost:3000/add', {
             method: 'POST',
@@ -30,7 +30,7 @@ const AddEquipment = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
         })
     }
     return (
