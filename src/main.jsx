@@ -14,6 +14,7 @@ import SportEquipment from './Components/SportEquipment.jsx';
 import Login from './Components/Authentication/Login.jsx';
 import Registration from './Components/Authentication/Registration.jsx';
 import AuthProvider from './Components/Authentication/AuthProvider.jsx';
+import MainSection from './Components/MainSection.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/add",
         element: <AddEquipment></AddEquipment>,
+      },
+      {
+        path: "/",
+        element: <MainSection></MainSection>,
       },
       {
         path: "/",
