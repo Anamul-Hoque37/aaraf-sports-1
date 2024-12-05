@@ -35,7 +35,6 @@ const Registration = () => {
             setError({...error, password:"Password must contain at least one lowercase letter."})
             return
         }
-
         setError('')
 
         

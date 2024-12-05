@@ -1,16 +1,15 @@
 import React, { useContext, useRef, useState } from 'react';
-
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-;
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import swal from 'sweetalert';
 import auth from '../../../Firebase.config';
 import { AuthContext } from './AuthProvider';
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
-    // const provider = new GoogleAuthProvider()
+    const provider = new GoogleAuthProvider()
     const { userLogin} = useContext(AuthContext)
     const [error, setError] = useState({});
     const location = useLocation();
@@ -39,18 +38,18 @@ const Login = () => {
         swal("successfully login")
     };
 
-    const handleForgetPassword=()=>{
-        const email = emailRef.current.value;
-        if(!email){
-            alert('Please provide a valid email address')
-        }
-        else{
-            sendPasswordResetEmail(auth, email)
-            .then(()=>{
-                alert('Password Reset email sent, please check your email')
-            })
-        }
-    }
+    // const handleForgetPassword=()=>{
+    //     const email = emailRef.current.value;
+    //     if(!email){
+    //         alert('Please provide a valid email address')
+    //     }
+    //     else{
+    //         sendPasswordResetEmail(auth, email)
+    //         .then(()=>{
+    //             alert('Password Reset email sent, please check your email')
+    //         })
+    //     }
+    // }
     const handleGoogleSignIn = () =>{
         signInWithPopup(auth, provider)
         .then((result) =>{
@@ -88,9 +87,9 @@ const Login = () => {
                             wrong password !!!
                         </label>
                         }
-                        <label onClick={handleForgetPassword} className="label">
+                        {/* <label onClick={handleForgetPassword} className="label">
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                        </label>
+                        </label> */}
                     </div>
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Login</button>

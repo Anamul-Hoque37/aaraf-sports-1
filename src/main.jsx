@@ -15,6 +15,10 @@ import Login from './Components/Authentication/Login.jsx';
 import Registration from './Components/Authentication/Registration.jsx';
 import AuthProvider from './Components/Authentication/AuthProvider.jsx';
 import MainSection from './Components/MainSection.jsx';
+import MyEquipment from './Components/MyEquipment.jsx';
+import PrivateRoute from './Components/PrivateRouter.jsx';
+import PrivateRouter from './Components/PrivateRouter.jsx';
+import ViewDetails from './Components/ViewDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,16 +28,30 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/add",
-        element: <AddEquipment></AddEquipment>,
+        element: <PrivateRouter>
+          <AddEquipment></AddEquipment>
+        </PrivateRouter>,
+      },
+      {
+        path: "/my",
+        element: <PrivateRouter>
+          <MyEquipment></MyEquipment>
+        </PrivateRouter>,
       },
       {
         path: "/",
         element: <MainSection></MainSection>,
       },
       {
-        path: "/",
+        path: "/product",
         element: <Product></Product>,
-        loader: () => fetch('http://localhost:3000/add')
+      },
+      {
+        path: "/product/:Id",
+        element: <PrivateRouter>
+          <ViewDetails></ViewDetails>
+        </PrivateRouter>,
+        loader: () => fetch('http://localhost:3000/add/')
       },
       {
         path: "/sports",

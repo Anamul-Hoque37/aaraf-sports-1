@@ -4,7 +4,7 @@ import { Carousel } from "@material-tailwind/react";
 const Banner = () => {
     const carouselRef = useRef(null);
     return (
-        <div className="relative w-full h-screen bg-gray-100">
+        <div className="relative w-full h-60 bg-gray-100">
             {/* Carousel Component */}
             <Carousel
                 ref={carouselRef}
