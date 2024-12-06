@@ -4,7 +4,6 @@ import ProductCard from './ProductCard';
 
 const Product = () => {
     const [products, setProducts] = useState([]);
-    console.log(products)
     useEffect(() =>{
         fetch('http://localhost:3000/add')
         .then(res => res.json())

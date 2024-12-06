@@ -4,10 +4,11 @@ import { AuthContext } from './Authentication/AuthProvider';
 
 const Navbar = () => {
     const {user, logOut} = useContext(AuthContext);
+    const userEmail = user.email;
     const Links = <>
         <li><NavLink to="/" >Home</NavLink></li>
         {
-            user && <> <li><NavLink to="/my">My Equipment List</NavLink></li> </>
+            user && <> <li><NavLink to={`/my/${userEmail}`}>My Equipment List</NavLink></li> </>
         }
         {
             user && <> <li><NavLink to="/add">Add Equipment</NavLink></li> </>
@@ -16,8 +17,8 @@ const Navbar = () => {
         <li><NavLink to="/Contact">Contact Us</NavLink></li>
     </>
     return (
-        <div>
-            <div className="navbar bg-base-100">
+        <div className='bg-gray-800 p-3'>
+            <div className="navbar border rounded-xl bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
