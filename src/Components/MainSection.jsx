@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from './Banner';
 import Product from './Product';
 import SportCategory from './SportCategory';
+import LottieReact from './LottieReact';
 
 
 const MainSection = () => {
@@ -10,6 +11,7 @@ const MainSection = () => {
             <Banner></Banner>
             <Product></Product>
             <SportCategory></SportCategory>
+            <LottieReact></LottieReact>
             
         </div>
     );

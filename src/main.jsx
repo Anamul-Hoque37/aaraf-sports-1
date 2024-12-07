@@ -19,6 +19,7 @@ import MyEquipment from './Components/MyEquipment.jsx';
 import PrivateRoute from './Components/PrivateRouter.jsx';
 import PrivateRouter from './Components/PrivateRouter.jsx';
 import ViewDetails from './Components/ViewDetails.jsx';
+import Update from './Components/Update.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/my/:userEmail",
-        loader: ({params}) => fetch(`http://localhost:3000/add/${params.userEmail}`),
+        loader: ({params}) => fetch(`http://localhost:3000/addd/${params.userEmail}`),
         element: <PrivateRouter>
           <MyEquipment></MyEquipment>
         </PrivateRouter>,
@@ -58,7 +59,7 @@ const router = createBrowserRouter([
       {
         path: "/sports",
         element: <SportEquipment></SportEquipment>,
-        loader: () => fetch('http://localhost:3000/add')
+        loader: () => fetch('http://localhost:3000/add'),
       },
       {
         path: "/login",
@@ -66,7 +67,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/register",
-        element: <Registration></Registration>
+        element: <Registration></Registration>,
+      },
+      {
+        path: "/update/:id",
+        loader: ({params}) => fetch(`http://localhost:3000/add/${params.id}`),
+        element: <Update></Update>
       }
     ]
   },

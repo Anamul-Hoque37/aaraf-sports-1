@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const ProductCard = ({ product }) => {
     const {image, itemName,categoryName, description, price, rating, customization, processingTime, stockStatus, userEmail, userName, _id } = product;
     return (
-        <div>
+        <div className='py-8'>
             <div className="card bg-base-100 shadow-xl">
                 <figure className="px-10 pt-10">
                     <img
@@ -13,8 +13,10 @@ const ProductCard = ({ product }) => {
                         className="rounded-xl" />
                 </figure>
                 <div className="card-body items-center text-center">
-                    <h2 className="card-title">Shoes!</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <h2 className="card-title">{categoryName}</h2>
+                    <p>{description}</p>
+                    <p>{price}</p>
+                    <p>{stockStatus}</p>
                     <div className="card-actions">
                         <Link to= {`/details/${_id}`}><button className="btn btn-primary">View Details</button></Link>
                     </div>

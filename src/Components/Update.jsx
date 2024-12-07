@@ -1,10 +1,13 @@
 import React from 'react';
-import { AuthContext } from './Authentication/AuthProvider';
-import { useContext } from 'react';
+import { useLoaderData } from 'react-router-dom';
 
-const AddEquipment = () => {
-    const { user } = useContext(AuthContext);
-    const handleAddItem = event => {
+const Update = () => {
+    const data = useLoaderData();
+    console.log(data)
+    const {image, itemName,categoryName, description, price, rating, customization, processingTime, stockStatus, userEmail, userName, _id } = data;
+
+
+    const handleUpdate = event => {
         event.preventDefault();
 
         const form = event.target;
@@ -21,15 +24,15 @@ const AddEquipment = () => {
         const userEmail = form.userEmail.value;
         const userName = form.userName.value;
 
-        const newEquipment = {image, itemName,categoryName, description, price, rating, customization, processingTime, stockStatus, userEmail, userName }
-        // console.log(newEquipment)
+        const updatedData = {image, itemName,categoryName, description, price, rating, customization, processingTime, stockStatus, userEmail, userName }
+    
 
         fetch('https://localhost:3000/add', {
-            method: 'POST',
+            method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(newEquipment)
+            body: JSON.stringify(updatedData)
         })
         .then(res => res.json())
         .then(data => {
@@ -48,74 +51,74 @@ const AddEquipment = () => {
                         </p>
                     </div>
                     <div className="card bg-base-100 w-full max-w-3xl shrink-0 shadow-2xl">
-                        <form onSubmit={handleAddItem} className="card-body">
+                        <form onSubmit={handleUpdate} className="card-body">
                             <div className='grid grid-cols-1
                             md:grid-cols-2 gap-4'>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Image</span>
                                     </label>
-                                    <input name="image" type="text" placeholder="Image" className="input input-bordered" required />
+                                    <input name="image" type="text" placeholder={image} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Item Name</span>
                                     </label>
-                                    <input name='itemName' type="text" placeholder="Item Name" className="input input-bordered" required />
+                                    <input name='itemName' type="text" placeholder={data.itemName} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Category Name</span>
                                     </label>
-                                    <input name='categoryName' type="text" placeholder="Category Name" className="input input-bordered" required />
+                                <input name='categoryName' type="text" placeholder={data.categoryName} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Description</span>
                                     </label>
-                                    <input name='description' type="text" placeholder="Description" className="input input-bordered" required />
+                                    <input name='description' type="text" placeholder={data.description} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Price</span>
                                     </label>
-                                    <input name='price' type="text" placeholder="Price" className="input input-bordered" required />
+                                    <input name='price' type="text" placeholder={data.price} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Rating</span>
                                     </label>
-                                    <input name='rating' type="text" placeholder="Rating" className="input input-bordered" required />
+                                    <input name='rating' type="text" placeholder={data.rating} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Customization</span>
                                     </label>
-                                    <input name='customization' type="text" placeholder="Customization" className="input input-bordered" required />
+                                    <input name='customization' type="text" placeholder={data.customization} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Processing Time</span>
                                     </label>
-                                    <input name='processingTime' type="text" placeholder="Processing Time" className="input input-bordered" required />
+                                    <input name='processingTime' type="text" placeholder={data.processingTime} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Stock Status</span>
                                     </label>
-                                    <input name='stockStatus' type="text" placeholder="Stock Status" className="input input-bordered" required />
+                                    <input name='stockStatus' type="text" placeholder={data.stockStatus} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">User Email</span>
                                     </label>
-                                    <input name='userEmail' type="Email" placeholder={user.email} className="input input-bordered" required />
+                                    <input name='userEmail' type="Email" placeholder={data.userEmail} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">User Name</span>
                                     </label>
-                                    <input name='userName' type="text" placeholder={user.displayName} className="input input-bordered" required />
+                                    <input name='userName' type="text" placeholder={data.userName} className="input input-bordered" required />
                                 </div>
                                 
                             </div>
@@ -130,4 +133,4 @@ const AddEquipment = () => {
     );
 };
 
-export default AddEquipment;
+export default Update;
