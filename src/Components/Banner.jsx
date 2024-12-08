@@ -1,62 +1,30 @@
 import React, { useRef } from 'react';
-import { Carousel } from "@material-tailwind/react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
+import '../App.CSS'
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const Banner = () => {
-    const carouselRef = useRef(null);
+    const pagination = {
+        clickable: true,
+        renderBullet: function (index, className) {
+          return '<span class="' + className + '">' + (index + 1) + '</span>';
+        },
+      };
     return (
-        <div className="relative w-full h-60 bg-gray-100">
-            {/* Carousel Component */}
-            <Carousel
-                ref={carouselRef}
-                autoplay={false} // Disable autoplay (manual control with buttons)
-                loop
-                className="w-full h-full"
-            >
-                {/* Slide 1 */}
-                <img
-                    src="https://i.ibb.co.com/dfSRcZG/sports-3.jpg"
-                    alt="Slide 1"
-                    className="h-full w-full object-cover"
-                />
-
-                {/* Slide 2 */}
-                <img
-                    src="https://i.ibb.co.com/KNzJg0F/sports-4.png"
-                    alt="Slide 2"
-                    className="h-full w-full object-cover"
-                />
-
-                {/* Slide 3 */}
-                <img
-                    src="https://i.ibb.co.com/dfSRcZG/sports-3.jpg"
-                    alt="Slide 3"
-                    className="h-full w-full object-cover"
-                />
-
-                {/* Slide 4 */}
-                <img
-                    src="https://i.ibb.co.com/KNzJg0F/sports-4.png"
-                    alt="Slide 4"
-                    className="h-full w-full object-cover"
-                />
-            </Carousel>
-
-            {/* Left Arrow Button */}
-            <button
-                onClick={() => carouselRef.current.prev()} // Trigger the `prev` function
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-70 transition"
-            >
-                &lt;
-            </button>
-
-            {/* Right Arrow Button */}
-            <button
-                onClick={() => carouselRef.current.next()} // Trigger the `next` function
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-70 transition"
-            >
-                &gt;
-            </button>
-        </div>
+        <div className='w-11/12 bg-white mx-auto border rounded-2xl'>
+        <Swiper
+            pagination={pagination}
+            modules={[Pagination]}
+            className="mySwiper"
+        >
+            <SwiperSlide><img className='border rounded-2xl' src="https://i.ibb.co.com/WPdgS1j/images-2.jpg" alt="" /></SwiperSlide>
+            <SwiperSlide><img className='border rounded-2xl' src="https://i.ibb.co.com/JsnYBR8/images-3.jpg" alt="" /></SwiperSlide>
+            <SwiperSlide><img className='border rounded-2xl' src="https://i.ibb.co.com/7zFj6X7/images-4.jpg" alt="" /></SwiperSlide>
+            <SwiperSlide><img className='border rounded-2xl' src="https://i.ibb.co.com/WPdgS1j/images-2.jpg" alt="" /></SwiperSlide>
+        </Swiper>
+    </div>
     );
 };
 

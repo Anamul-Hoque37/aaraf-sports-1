@@ -1,5 +1,7 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { CTooltip } from '@coreui/react';
+import { CButton } from '@coreui/react';
 
 const Update = () => {
     const data = useLoaderData();
@@ -22,8 +24,8 @@ const Update = () => {
         const userEmail = form.userEmail.value;
         const userName = form.userName.value;
 
-        const updatedData = {image, itemName,categoryName, description, price, rating, customization, processingTime, stockStatus, userEmail, userName }
-    
+        const updatedData = { image, itemName, categoryName, description, price, rating, customization, processingTime, stockStatus, userEmail, userName }
+
 
         fetch(`http://localhost:3000/add/${data._id}`, {
             method: 'PUT',
@@ -32,21 +34,24 @@ const Update = () => {
             },
             body: JSON.stringify(updatedData)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
     }
     return (
         <div>
             <div className="hero bg-base-200 min-h-screen">
-                <div className="hero-content flex-col">
+                <div className="hero-content flex-col gap-14">
                     <div className="text-center w-3/4">
-                        <h1 className="text-5xl font-bold">Add Equipment</h1>
-                        <p className="py-6">
-                            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                            quasi. In deleniti eaque aut repudiandae et a id nisi.
-                        </p>
+                        <div>
+                            <CTooltip
+                                content="You can add text into a component and it will be instanced like any other part of the component."
+                                placement="bottom"
+                            >
+                                <CButton color="secondary">Update Component</CButton>
+                            </CTooltip>
+                        </div>
                     </div>
                     <div className="card bg-base-100 w-full max-w-3xl shrink-0 shadow-2xl">
                         <form onSubmit={handleUpdate} className="card-body">
@@ -68,7 +73,7 @@ const Update = () => {
                                     <label className="label">
                                         <span className="label-text">Category Name</span>
                                     </label>
-                                <input name='categoryName' type="text" defaultValue={data.categoryName} className="input input-bordered" required />
+                                    <input name='categoryName' type="text" defaultValue={data.categoryName} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -118,7 +123,7 @@ const Update = () => {
                                     </label>
                                     <input name='userName' type="text" defaultValue={data.userName} className="input input-bordered" required />
                                 </div>
-                                
+
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Add Item</button>

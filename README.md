@@ -1,8 +1,15 @@
-# React + Vite
+# Website Name: Aaraf Sports
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live URL
+https://aaraf-sports.web.app/
 
-Currently, two official plugins are available:
+## About the Project
+The "Aaraf Sports" website is envisioned as a dynamic platform for sports enthusiasts, players, and teams, offering a comprehensive suite of features to cater to all their sporting needs. It combines a robust e-commerce experience with interactive tools and engaging content to ensure users can shop, learn, and connect in one place.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Feature:
+- **Product Catalog**: Browse sports equipment, apparel, and accessories with detailed filters for easy selection.
+- **Live Chat Support**: Get instant help with product queries, orders, or customization via live chat or chatbot.
+- **Custom Gear Design**: Create personalized jerseys and team gear with names, logos, and custom colors.
+- **Event Calendar**: Stay updated on tournaments, training sessions, and sports events with booking options.
+- **Loyalty Program**: Earn rewards for purchases and enjoy exclusive discounts and offers for members.
+- **Blog & Tutorials**: Access sports news, training tips, and video guides to improve your game.

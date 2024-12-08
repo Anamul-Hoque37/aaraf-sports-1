@@ -28,7 +28,6 @@ const Navbar = () => {
             user && <> <li><NavLink to="/add">Add Equipment</NavLink></li> </>
         }
         <li><NavLink to="/sports">All Sports Equipment</NavLink></li>
-        <li><NavLink to="/Contact">Contact Us</NavLink></li>
     </>
     return (
         <div className='bg-gray-800 p-3'>

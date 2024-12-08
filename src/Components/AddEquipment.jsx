@@ -41,7 +41,7 @@ const AddEquipment = () => {
     return (
         <div>
             <div className="hero bg-base-200 min-h-screen">
-                <div className="hero-content flex-col">
+                <div className="hero-content flex-col gap-14">
                     <div className="text-center w-3/4">
                         <div>
                             <CTooltip

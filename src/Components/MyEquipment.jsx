@@ -38,7 +38,7 @@ const MyEquipment = () => {
     return (
         <div className='flex flex-col justify-center items-center py-8'>
             <h1 className='text-3xl font-semibold'>My Equipment List</h1>
-            <div className='grid grid-cols-3 pt-4 gap-6'>
+            <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-4 gap-6'>
                 {
                     data.map((data, index) =>
                         <div key={index} className="card glass w-96">
