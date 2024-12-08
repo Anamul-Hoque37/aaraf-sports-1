@@ -3,8 +3,6 @@ import { useLoaderData } from 'react-router-dom';
 
 const Update = () => {
     const data = useLoaderData();
-    console.log(data)
-    const {image, itemName,categoryName, description, price, rating, customization, processingTime, stockStatus, userEmail, userName, _id } = data;
 
 
     const handleUpdate = event => {
@@ -27,8 +25,8 @@ const Update = () => {
         const updatedData = {image, itemName,categoryName, description, price, rating, customization, processingTime, stockStatus, userEmail, userName }
     
 
-        fetch('https://localhost:3000/add', {
-            method: 'PATCH',
+        fetch(`http://localhost:3000/add/${data._id}`, {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
@@ -36,7 +34,7 @@ const Update = () => {
         })
         .then(res => res.json())
         .then(data => {
-            // console.log(data);
+            console.log(data);
         })
     }
     return (
@@ -58,67 +56,67 @@ const Update = () => {
                                     <label className="label">
                                         <span className="label-text">Image</span>
                                     </label>
-                                    <input name="image" type="text" placeholder={image} className="input input-bordered" required />
+                                    <input name="image" type="text" defaultValue={data.image} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Item Name</span>
                                     </label>
-                                    <input name='itemName' type="text" placeholder={data.itemName} className="input input-bordered" required />
+                                    <input name='itemName' type="text" defaultValue={data.itemName} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Category Name</span>
                                     </label>
-                                <input name='categoryName' type="text" placeholder={data.categoryName} className="input input-bordered" required />
+                                <input name='categoryName' type="text" defaultValue={data.categoryName} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Description</span>
                                     </label>
-                                    <input name='description' type="text" placeholder={data.description} className="input input-bordered" required />
+                                    <input name='description' type="text" defaultValue={data.description} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Price</span>
                                     </label>
-                                    <input name='price' type="text" placeholder={data.price} className="input input-bordered" required />
+                                    <input name='price' type="text" defaultValue={data.price} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Rating</span>
                                     </label>
-                                    <input name='rating' type="text" placeholder={data.rating} className="input input-bordered" required />
+                                    <input name='rating' type="text" defaultValue={data.rating} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Customization</span>
                                     </label>
-                                    <input name='customization' type="text" placeholder={data.customization} className="input input-bordered" required />
+                                    <input name='customization' type="text" defaultValue={data.customization} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Processing Time</span>
                                     </label>
-                                    <input name='processingTime' type="text" placeholder={data.processingTime} className="input input-bordered" required />
+                                    <input name='processingTime' type="text" defaultValue={data.processingTime} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Stock Status</span>
                                     </label>
-                                    <input name='stockStatus' type="text" placeholder={data.stockStatus} className="input input-bordered" required />
+                                    <input name='stockStatus' type="text" defaultValue={data.stockStatus} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">User Email</span>
                                     </label>
-                                    <input name='userEmail' type="Email" placeholder={data.userEmail} className="input input-bordered" required />
+                                    <input name='userEmail' type="Email" defaultValue={data.userEmail} className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">User Name</span>
                                     </label>
-                                    <input name='userName' type="text" placeholder={data.userName} className="input input-bordered" required />
+                                    <input name='userName' type="text" defaultValue={data.userName} className="input input-bordered" required />
                                 </div>
                                 
                             </div>

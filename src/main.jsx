@@ -7,7 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Home from './Components/Home.jsx';
-import AddEquipment from './Components/addEquipment.jsx';
+import AddEquipment from './Components/AddEquipment.jsx';
 import Product from './Components/Product.jsx';
 import ErrorPage from './Components/ErrorPage.jsx';
 import SportEquipment from './Components/SportEquipment.jsx';

@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from './Authentication/AuthProvider';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { Zoom } from 'react-awesome-reveal';
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -56,7 +57,9 @@ const Navbar = () => {
                             }
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">Aaraf Sports</a>
+                    <Zoom>
+                    <p className="btn btn-ghost text-xl">Aaraf Sports</p>
+                    </Zoom>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

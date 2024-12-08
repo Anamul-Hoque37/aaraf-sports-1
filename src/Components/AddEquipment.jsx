@@ -1,6 +1,8 @@
 import React from 'react';
 import { AuthContext } from './Authentication/AuthProvider';
 import { useContext } from 'react';
+import { CTooltip } from '@coreui/react';
+import { CButton } from '@coreui/react';
 
 const AddEquipment = () => {
     const { user } = useContext(AuthContext);
@@ -21,31 +23,34 @@ const AddEquipment = () => {
         const userEmail = form.userEmail.value;
         const userName = form.userName.value;
 
-        const newEquipment = {image, itemName,categoryName, description, price, rating, customization, processingTime, stockStatus, userEmail, userName }
+        const newEquipment = { image, itemName, categoryName, description, price, rating, customization, processingTime, stockStatus, userEmail, userName }
         // console.log(newEquipment)
 
-        fetch('https://localhost:3000/add', {
+        fetch('http://localhost:3000/add/equipment', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(newEquipment)
         })
-        .then(res => res.json())
-        .then(data => {
-            // console.log(data);
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
     }
     return (
         <div>
             <div className="hero bg-base-200 min-h-screen">
                 <div className="hero-content flex-col">
                     <div className="text-center w-3/4">
-                        <h1 className="text-5xl font-bold">Add Equipment</h1>
-                        <p className="py-6">
-                            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                            quasi. In deleniti eaque aut repudiandae et a id nisi.
-                        </p>
+                        <div>
+                            <CTooltip
+                                content="You can add text into a component and it will be instanced like any other part of the component."
+                                placement="bottom"
+                            >
+                                <CButton color="secondary">Add Your Component</CButton>
+                            </CTooltip>
+                        </div>
                     </div>
                     <div className="card bg-base-100 w-full max-w-3xl shrink-0 shadow-2xl">
                         <form onSubmit={handleAddItem} className="card-body">
@@ -117,7 +122,7 @@ const AddEquipment = () => {
                                     </label>
                                     <input name='userName' type="text" placeholder={user.displayName} className="input input-bordered" required />
                                 </div>
-                                
+
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Add Item</button>
