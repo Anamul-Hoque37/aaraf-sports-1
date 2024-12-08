@@ -17,7 +17,7 @@ const MyEquipment = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:3000/add/${id}`, {
+                fetch(`https://b10-a10-server-side-anamul-hoque37.vercel.app/add/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

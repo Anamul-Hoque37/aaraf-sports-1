@@ -95,7 +95,10 @@ const Navbar = () => {
                             <p className='text-xl opacity-0 text-blue-700 hover:opacity-100 bg-transparent w-14 text-center absolute top-8'>{user.displayName}</p></div>) : (""
                         )}
 
-                        {user && user?.email ? (<button onClick={logOut} className='btn'>LogOut</button>) : (<Link to="/login" className='btn'>Login</Link>)}
+                        {user && user?.email ? (<button onClick={logOut} className='btn'>LogOut</button>) : ( <div className='flex gap-4'>
+                            <Link to="/login" className='btn'>Login</Link>
+                            <Link to="/register" className='btn'>Register</Link>
+                        </div>)}
 
                     </div>
                 </div>

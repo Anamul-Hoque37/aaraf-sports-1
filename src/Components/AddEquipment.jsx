@@ -26,7 +26,7 @@ const AddEquipment = () => {
         const newEquipment = { image, itemName, categoryName, description, price, rating, customization, processingTime, stockStatus, userEmail, userName }
         // console.log(newEquipment)
 
-        fetch('http://localhost:3000/add/equipment', {
+        fetch('https://b10-a10-server-side-anamul-hoque37.vercel.app/add/equipment', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

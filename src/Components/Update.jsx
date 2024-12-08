@@ -27,7 +27,7 @@ const Update = () => {
         const updatedData = { image, itemName, categoryName, description, price, rating, customization, processingTime, stockStatus, userEmail, userName }
 
 
-        fetch(`http://localhost:3000/add/${data._id}`, {
+        fetch(`https://b10-a10-server-side-anamul-hoque37.vercel.app/add/${data._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

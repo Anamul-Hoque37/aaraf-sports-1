@@ -19,7 +19,7 @@ const Banner = () => {
             modules={[Pagination]}
             className="mySwiper"
         >
-            <SwiperSlide><img className='border rounded-2xl' src="https://i.ibb.co.com/WPdgS1j/images-2.jpg" alt="" /></SwiperSlide>
+            <SwiperSlide><img className='border rounded-2xl' src="https://i.ibb.co.com/7zFj6X7/images-4.jpg" alt="" /></SwiperSlide>
             <SwiperSlide><img className='border rounded-2xl' src="https://i.ibb.co.com/JsnYBR8/images-3.jpg" alt="" /></SwiperSlide>
             <SwiperSlide><img className='border rounded-2xl' src="https://i.ibb.co.com/7zFj6X7/images-4.jpg" alt="" /></SwiperSlide>
             <SwiperSlide><img className='border rounded-2xl' src="https://i.ibb.co.com/WPdgS1j/images-2.jpg" alt="" /></SwiperSlide>

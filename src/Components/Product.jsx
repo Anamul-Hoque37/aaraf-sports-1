@@ -5,7 +5,7 @@ import ProductCard from './ProductCard';
 const Product = () => {
     const [products, setProducts] = useState([]);
     useEffect(() =>{
-        fetch('http://localhost:3000/add')
+        fetch('https://b10-a10-server-side-anamul-hoque37.vercel.app/add')
         .then(res => res.json())
         .then(data => setProducts(data))
     }, []);

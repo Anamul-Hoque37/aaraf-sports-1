@@ -3,10 +3,11 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const SportEquipment = () => {
     const sports = useLoaderData();
-    const [price, setPrice] = useState(sports);
+    console.log(sports)
+    const [prices, setPrices] = useState(sports);
     const handleSort = () => {
-        const sortedPrice = [...price].sort((a, b) => a.price - b.price);
-        setPrice(sortedPrice);
+        const sortedPrice = prices.sort((a, b) => a.price - b.price);
+        setPrices(sortedPrice);
     }
 
     return (
@@ -26,7 +27,7 @@ const SportEquipment = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {sports.map((item) => (
+                        {prices.map((item) => (
                             <tr key={item._id}>
                                 <td className="border border-gray-200 px-4 py-2">{item.itemName}</td>
                                 <td className="border border-gray-200 px-4 py-2">{item.categoryName}</td>
