@@ -3,8 +3,13 @@ import { Link, useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const MyEquipment = () => {
-    const data = useLoaderData();
-    const [users, setUsers] = useState(data);
+    const sports = useLoaderData();
+    console.log(sports)
+    const [prices, setPrices] = useState(sports);
+    const handleSort = () => {
+        const sortedPrice = prices.sort((a, b) => a.price - b.price);
+        setPrices(sortedPrice);
+    }
     const handleDelete = id => {
         Swal.fire({
             title: "Are you sure?",
@@ -17,7 +22,7 @@ const MyEquipment = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://b10-a10-server-side-anamul-hoque37.vercel.app/add/${id}`, {
+                fetch(`http://localhost:3000/add/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -36,28 +41,42 @@ const MyEquipment = () => {
         });
     }
     return (
-        <div className='flex flex-col justify-center items-center py-8'>
-            <h1 className='text-3xl font-semibold'>My Equipment List</h1>
-            <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-4 gap-6'>
-                {
-                    data.map((data, index) =>
-                        <div key={index} className="card glass w-96">
-                            <figure>
-                                <img
-                                    src={data.image} />
-                            </figure>
-                            <div className="card-body">
-                                <h2 className="card-title">{data.itemName}</h2>
-                                <p>{data.categoryName}</p>
-                                <p>{data.description}</p>
-                                <div className="card-actions justify-center">
-                                    <Link to={`/update/${data._id}`}><button className="btn btn-primary">Update</button></Link>
-                                    <button onClick={() => handleDelete(data._id)} className="btn btn-primary">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                    )
-                }
+        <div>
+            <div className='w-11/12 mx-auto py-8'>
+                <div className='flex justify-between'>
+                    <h1 className="text-2xl font-bold mb-4">All Sports Equipment Table: {sports.length}</h1>
+                    <button onClick={handleSort} className='btn'>Sort by</button>
+                </div>
+                <div className="overflow-x-auto">
+                    <table className="min-w-full border-collapse border border-gray-200 shadow-md">
+                        <thead>
+                            <tr className="bg-gray-100">
+                                <th className="border w-1/12 border-gray-200 px-4 py-2 text-left font-medium text-gray-700">No.</th>
+                                <th className="border w-1/3 border-gray-200 px-4 py-2 text-left font-medium text-gray-700">Name</th>
+                                <th className="border w-1/4 border-gray-200 px-4 py-2 text-left font-medium text-gray-700">Category</th>
+                                <th className="border w-1/6 border-gray-200 px-4 py-2 text-left font-medium text-gray-700">Price</th>
+                                <th className="border w-1/12 border-gray-200 px-4 py-2 text-left font-medium text-gray-700">Update</th>
+                                <th className="border w-1/12 border-gray-200 px-4 py-2 text-left font-medium text-gray-700">Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {prices.map((item, index) => (
+                                <tr key={item._id}>
+                                    <td className="border border-gray-200 px-4 py-2">{index + 1}</td>
+                                    <td className="border border-gray-200 px-4 py-2">{item.itemName}</td>
+                                    <td className="border border-gray-200 px-4 py-2">{item.categoryName}</td>
+                                    <td className="border border-gray-200 px-4 py-2">{item.price}</td>
+                                    <td className="border border-gray-200 w-16 h-full">
+                                        <Link to={`/update/${item._id}`}><button className="btn btn-primary w-full h-full">Update</button></Link>
+                                    </td>
+                                    <td className="border border-gray-200 w-16 h-full">
+                                        <button onClick={() => handleDelete(item._id)} className="btn btn-primary w-full h-full">Delete</button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );

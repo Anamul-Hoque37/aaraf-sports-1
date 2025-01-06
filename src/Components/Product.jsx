@@ -5,12 +5,12 @@ import ProductCard from './ProductCard';
 const Product = () => {
     const [products, setProducts] = useState([]);
     useEffect(() =>{
-        fetch('https://b10-a10-server-side-anamul-hoque37.vercel.app/add')
+        fetch('http://localhost:3000/add')
         .then(res => res.json())
         .then(data => setProducts(data))
     }, []);
     return (
-        <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-11/12 gap-6 mx-auto'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-11/12 gap-6 mx-auto'>
             {
                 products.map(product => <ProductCard key={product._id}product={product}></ProductCard>)
             }

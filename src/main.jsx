@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/my/:userEmail",
-        loader: ({params}) => fetch(`https://b10-a10-server-side-anamul-hoque37.vercel.app/addd/${params.userEmail}`),
+        loader: ({params}) => fetch(`http://localhost:3000/addd/${params.userEmail}`),
         element: <PrivateRouter>
           <MyEquipment></MyEquipment>
         </PrivateRouter>,
@@ -51,15 +51,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/details/:id",
-        loader: ({params}) => fetch(`https://b10-a10-server-side-anamul-hoque37.vercel.app/add/${params.id}`),
-        element: <PrivateRouter>
-          <ViewDetails></ViewDetails>
-        </PrivateRouter>,
+        loader: ({params}) => fetch(`http://localhost:3000/add/${params.id}`),
+        element:<ViewDetails></ViewDetails>,
       },
       {
         path: "/sports",
         element: <SportEquipment></SportEquipment>,
-        loader: () => fetch('https://b10-a10-server-side-anamul-hoque37.vercel.app/add'),
+        loader: () => fetch('http://localhost:3000/add'),
       },
       {
         path: "/login",
@@ -71,12 +69,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/update/:id",
-        loader: ({params}) => fetch(`https://b10-a10-server-side-anamul-hoque37.vercel.app/add/${params.id}`),
+        loader: ({params}) => fetch(`http://localhost:3000/add/${params.id}`),
         element: <Update></Update>
       }
     ]
   },
 ]);
+
+// https://b10-a10-server-side-anamul-hoque37.vercel.apap
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

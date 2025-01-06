@@ -2,15 +2,15 @@ import React from 'react';
 
 const ContactUs = () => {
   return (
-    <section className="bg-gray-100 py-16" id="contact-us">
+    <section className="bg-gray-100 py-8" id="contact-us">
       <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-gray-800 mb-6">Contact Us</h2>
-        <p className="text-gray-600 text-lg mb-10">
+        <p className="text-gray-600 text-lg font-semibold mb-4">
           Have questions? We'd love to hear from you! Fill out the form below or reach us via the provided contact details.
         </p>
         <form className="space-y-6">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="name" className="block text-sm text-left px-2 font-medium text-gray-700">
               Name
             </label>
             <input
@@ -23,7 +23,7 @@ const ContactUs = () => {
             />
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="email" className="block text-sm text-left px-2 font-medium text-gray-700">
               Email
             </label>
             <input
@@ -36,7 +36,7 @@ const ContactUs = () => {
             />
           </div>
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="message" className="block text-sm text-left px-2 font-medium text-gray-700">
               Message
             </label>
             <textarea
