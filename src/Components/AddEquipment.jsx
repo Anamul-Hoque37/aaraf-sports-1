@@ -3,6 +3,8 @@ import { AuthContext } from './Authentication/AuthProvider';
 import { useContext } from 'react';
 import { CTooltip } from '@coreui/react';
 import { CButton } from '@coreui/react';
+import { Link } from 'react-router-dom';
+import { FaArrowLeftLong } from 'react-icons/fa6';
 
 const AddEquipment = () => {
     const { user } = useContext(AuthContext);
@@ -26,7 +28,7 @@ const AddEquipment = () => {
         const newEquipment = { image, itemName, categoryName, description, price, rating, customization, processingTime, stockStatus, userEmail, userName }
         // console.log(newEquipment)
 
-        fetch('http://localhost:3000/add/equipment', {
+        fetch('https://b10-a10-server-side-anamul-hoque37.vercel.app/add/equipment', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -121,7 +123,7 @@ const AddEquipment = () => {
                                     <label className="label">
                                         <span className="label-text">User Name</span>
                                     </label>
-                                    <input name='userName' type="text" placeholder={user.displayName} className="input input-bordered" required readOnly/>
+                                    <input name='userName' type="text" placeholder={user.displayName} className="input input-bordered" required readOnly />
                                 </div>
 
                             </div>
@@ -129,6 +131,9 @@ const AddEquipment = () => {
                                 <button className="btn btn-primary">Add Item</button>
                             </div>
                         </form>
+                    </div>
+                    <div className='text-sm border p-2 px-8 bg-gradient-to-r from-blue-900 via-slate-300 to-indigo-900 rounded-lg'>
+                        <Link to='/' className='flex justify-center text-white items-center gap-5'> <FaArrowLeftLong /> Back to Home Page</Link>
                     </div>
                 </div>
             </div>

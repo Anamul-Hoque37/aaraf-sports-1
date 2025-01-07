@@ -2,7 +2,7 @@ import React from 'react';
 
 const HighLight = () => {
     return (
-        <section className="relative bg-gradient-to-r from-blue-900 to-indigo-900 text-white py-8">
+        <section className="relative bg-gradient-to-r from-blue-900 via-slate-300 to-indigo-900 text-white py-8">
             <div className="absolute inset-0 opacity-20">
                 <img
                     src="https://via.placeholder.com/1500x800"
@@ -21,13 +21,7 @@ const HighLight = () => {
                 <div className="mt-8 flex justify-center gap-4">
                     <a
                         href="#"
-                        className="px-6 py-3 bg-indigo-600 text-white text-lg font-medium rounded-md shadow hover:bg-indigo-700 transition"
-                    >
-                        Shop Now
-                    </a>
-                    <a
-                        href="#"
-                        className="px-6 py-3 border border-white text-lg font-medium rounded-md hover:bg-white hover:text-indigo-600 transition"
+                        className="px-6 py-3 border bg-indigo-600 border-white text-lg font-medium rounded-md hover:bg-white hover:text-indigo-600 transition"
                     >
                         Learn More
                     </a>

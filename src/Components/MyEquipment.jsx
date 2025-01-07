@@ -5,11 +5,12 @@ import Swal from 'sweetalert2';
 const MyEquipment = () => {
     const sports = useLoaderData();
     console.log(sports)
-    const [prices, setPrices] = useState(sports);
-    const handleSort = () => {
-        const sortedPrice = prices.sort((a, b) => a.price - b.price);
-        setPrices(sortedPrice);
-    }
+    const [sortOrder, setSortOrder] = useState("default"); // "asc", "desc", "default"
+    const sortedProducts = [...sports].sort((a, b) => {
+        if (sortOrder === "asc") return a.price - b.price;
+        if (sortOrder === "desc") return b.price - a.price;
+        return 0; // Default order
+    });
     const handleDelete = id => {
         Swal.fire({
             title: "Are you sure?",
@@ -22,7 +23,7 @@ const MyEquipment = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:3000/add/${id}`, {
+                fetch(`https://b10-a10-server-side-anamul-hoque37.vercel.app/add/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -43,9 +44,24 @@ const MyEquipment = () => {
     return (
         <div>
             <div className='w-11/12 mx-auto py-8'>
-                <div className='flex justify-between'>
+                <div className='flex flex-col md:flex-row justify-center items-center md:justify-between'>
                     <h1 className="text-2xl font-bold mb-4">All Sports Equipment Table: {sports.length}</h1>
-                    <button onClick={handleSort} className='btn'>Sort by</button>
+                    {/* Dropdown for Sorting */}
+                    <div className="mb-4 flex justify-center items-center gap-2">
+                        <label htmlFor="sort" className="block mb-2 text-xl font-bold text-gray-700">
+                            Sort by Price
+                        </label>
+                        <select
+                            id="sort"
+                            value={sortOrder}
+                            onChange={(e) => setSortOrder(e.target.value)}
+                            className="px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                            <option value="default">Default Order</option>
+                            <option value="asc">Ascending</option>
+                            <option value="desc">Descending</option>
+                        </select>
+                    </div>
                 </div>
                 <div className="overflow-x-auto">
                     <table className="min-w-full border-collapse border border-gray-200 shadow-md">
@@ -60,7 +76,7 @@ const MyEquipment = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {prices.map((item, index) => (
+                            {sortedProducts.map((item, index) => (
                                 <tr key={item._id}>
                                     <td className="border border-gray-200 px-4 py-2">{index + 1}</td>
                                     <td className="border border-gray-200 px-4 py-2">{item.itemName}</td>

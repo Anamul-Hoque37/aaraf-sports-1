@@ -12,7 +12,7 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const provider = new GoogleAuthProvider()
     const { userLogin } = useContext(AuthContext)
-    const [error, setError] = useState({});
+    const [error, setError] = useState(null);
     const location = useLocation();
     const emailRef = useRef();
     const navigate = useNavigate();
@@ -24,7 +24,12 @@ const Login = () => {
         userLogin(email, password)
             .then(result => {
                 const user = result.user
-                setUser(user)
+                // setUser(user)
+                Swal.fire({
+                    title: 'success',
+                    text: 'Successfully login',
+                    icon: 'success',
+                });
                 navigate(location?.state ? location.state : "/")
             })
             .catch((err) => {
@@ -36,7 +41,7 @@ const Login = () => {
                     footer: 'Please check your internet connection and try again.'
                 });
             })
-        // Swal("successfully login")
+       
     };
 
     // const handleForgetPassword=()=>{
@@ -84,7 +89,7 @@ const Login = () => {
                             }
                         </button>
                         {
-                            error.login && <label className="label text-yellow-300 text-xs">
+                            error && <label className="label text-yellow-300 text-xs">
                                 wrong password !!!
                             </label>
                         }
@@ -101,7 +106,7 @@ const Login = () => {
                     <button onClick={handleGoogleSignIn} className='btn w-full bg-indigo-500 hover:bg-indigo-800'>Login With Google</button>
                 </div>
             </div>
-            <div className='text-sm border p-2 bg-indigo-700 rounded-lg'>
+            <div className='text-sm border p-2 px-8 bg-gradient-to-r from-blue-900 via-slate-300 to-indigo-900 rounded-lg'>
                 <Link to='/' className='flex justify-center text-white items-center gap-5'> <FaArrowLeftLong /> Back to Home Page</Link>
             </div>
         </div>

@@ -13,7 +13,7 @@ const Registration = () => {
     const { createNewUser, setUser } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
     const provider = new GoogleAuthProvider()
-    const [error, setError] = useState('');
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -40,8 +40,13 @@ const Registration = () => {
         createNewUser(email, password)
 
             .then(result => {
-                const user = result.user;
-                setUser(user)
+                // const user = result.user;
+                // setUser(user)
+                Swal.fire({
+                    title: 'success',
+                    text: 'Successfully login',
+                    icon: 'success',
+                });
                 navigate("/")
             })
             .catch((error) => {
@@ -100,7 +105,7 @@ const Registration = () => {
                             }
                         </button>
                         {
-                            error.password && (
+                            error && (
                                 <label className="label">
                                     {error.password}
                                 </label>
@@ -119,7 +124,7 @@ const Registration = () => {
                     <button onClick={handleGoogleSignIn} className='btn w-full text-white bg-indigo-500 hover:bg-indigo-800'>Login With Google</button>
                 </div>
             </div>
-            <div className='text-sm border p-2 bg-indigo-700 rounded-lg'>
+            <div className='text-sm border p-2 px-8 bg-gradient-to-r from-blue-900 via-slate-300 to-indigo-900 rounded-lg'>
                 <Link to='/' className='flex justify-center text-white items-center gap-5'> <FaArrowLeftLong /> Back to Home Page</Link>
             </div>
         </div>

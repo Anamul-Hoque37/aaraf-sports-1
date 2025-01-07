@@ -19,10 +19,11 @@ const Banner = () => {
                 modules={[Pagination]}
                 className="mySwiper h-[600px"
             >
+                <SwiperSlide><img src="https://i.ibb.co.com/ZVQwXpN/sports3.jpg" alt="" /></SwiperSlide>
+                <SwiperSlide><img src="https://i.ibb.co.com/VMBR8cx/sports1.jpg" alt="" /></SwiperSlide>
+                <SwiperSlide><img src="https://i.ibb.co.com/74bsMX2/sports2.jpg" alt="" /></SwiperSlide>
+                <SwiperSlide><img src="https://i.ibb.co.com/ZVQwXpN/sports3.jpg" alt="" /></SwiperSlide>
                 <SwiperSlide><img src="https://i.ibb.co.com/7zFj6X7/images-4.jpg" alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://i.ibb.co.com/JsnYBR8/images-3.jpg" alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://i.ibb.co.com/7zFj6X7/images-4.jpg" alt="" /></SwiperSlide>
-                <SwiperSlide><img src="https://i.ibb.co.com/WPdgS1j/images-2.jpg" alt="" /></SwiperSlide>
             </Swiper>
         </div>
     );
