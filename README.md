@@ -45,5 +45,5 @@ Follow these steps to run the project on your local machine:
 
 1. **Clone the Repository:**  
    ```bash
-   git clone https://github.com/yourusername/your-repository-name.git
+   git clone https://github.com/Anamul-Hoque37/aaraf-sports-1.git
    cd your-repository-name
