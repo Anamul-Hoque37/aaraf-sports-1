@@ -10,7 +10,8 @@ https://aaraf-sports.web.app/
 
 ## 🖼️ Screenshot  
 Include a beautiful screenshot of your project:  
-![Screenshot](link-to-screenshot.png)  
+![Screenshot](https://i.ibb.co.com/KXsh0BV/sportsa.png)  
+![Screenshot](https://i.ibb.co.com/0rd56WD/sportsb.png)  
 
 ---
 
