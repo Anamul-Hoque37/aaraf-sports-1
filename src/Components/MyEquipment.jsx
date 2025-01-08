@@ -45,7 +45,7 @@ const MyEquipment = () => {
         <div>
             <div className='w-11/12 mx-auto py-8'>
                 <div className='flex flex-col md:flex-row justify-center items-center md:justify-between'>
-                    <h1 className="text-2xl font-bold mb-4">All Sports Equipment Table: {sports.length}</h1>
+                    <h1 className="text-2xl font-bold mb-4">My Equipment Table: {sports.length}</h1>
                     {/* Dropdown for Sorting */}
                     <div className="mb-4 flex justify-center items-center gap-2">
                         <label htmlFor="sort" className="block mb-2 text-xl font-bold text-gray-700">

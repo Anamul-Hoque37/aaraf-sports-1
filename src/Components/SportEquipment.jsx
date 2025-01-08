@@ -7,7 +7,7 @@ const SportEquipment = () => {
     return (
         <div>
             <div className='flex flex-col bg-gray-100 justify-center items-center py-8'>
-                <h1 className='text-3xl font-semibold'>My Equipment List</h1>
+                <h1 className='text-3xl font-semibold'>All Equipment List</h1>
                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  p-6 gap-6'>
                     {
                         data.map((data, index) =>
